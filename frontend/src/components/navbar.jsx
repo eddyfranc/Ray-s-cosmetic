@@ -1,36 +1,72 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   return (
     <header className="w-full sticky top-0 z-50 bg-white">
-     
+      {/* Top Bar */}
       <div className="flex items-center justify-between px-10 py-6 border-b border-gray-200">
         {/* Logo */}
-        <div className="text-3xl font-light font-serif">
-          Ray's Cosmetics
-        </div>
+        <Link
+          to="/"
+          className="text-3xl font-light font-serif hover:opacity-80"
+        >
+          Ray&apos;s Cosmetics
+        </Link>
 
         {/* Top Right Links */}
         <div className="flex gap-6 text-xs tracking-widest">
-          <a href="#" className="hover:opacity-70">ACCOUNT</a>
-          <a href="#" className="hover:opacity-70">SEARCH</a>
-          <a href="#" className="hover:opacity-70">CART (0)</a>
+          <Link to="/login" className="hover:opacity-70">
+            ACCOUNT
+          </Link>
+
+          <Link to="/search" className="hover:opacity-70">
+            SEARCH
+          </Link>
+
+          <Link to="/cart" className="hover:opacity-70">
+            CART (0)
+          </Link>
         </div>
       </div>
 
       {/* Bottom Menu */}
       <nav className="bg-[#f3d8d1]">
         <ul className="flex justify-center gap-10 py-4 text-sm tracking-widest font-medium">
-          <li><a href="#" className="hover:opacity-70">HOME</a></li>
-          <li><a href="#" className="hover:opacity-70">SHOP</a></li>
-          <li><a href="#" className="hover:opacity-70">BEST SELLERS</a></li>
-          <li><a href="#" className="hover:opacity-70">BUNDLES AND SETS</a></li>
-          <li><a href="#" className="hover:opacity-70">GIFT CARDS</a></li>
-          <li><a href="#" className="hover:opacity-70">ABOUT US</a></li>
+          <li>
+            <Link to="/" className="hover:opacity-70">
+              HOME
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop" className="hover:opacity-70">
+              SHOP
+            </Link>
+          </li>
+          <li>
+            <Link to="/best-sellers" className="hover:opacity-70">
+              BEST SELLERS
+            </Link>
+          </li>
+          <li>
+            <Link to="/bundles" className="hover:opacity-70">
+              BUNDLES AND SETS
+            </Link>
+          </li>
+          <li>
+            <Link to="/gift-cards" className="hover:opacity-70">
+              GIFT CARDS
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="hover:opacity-70">
+              ABOUT US
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
   )
 }
 
-export default Navbar;
+export default Navbar
