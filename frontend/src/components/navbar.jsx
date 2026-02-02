@@ -1,107 +1,36 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { auth, db } from "../../firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import React from 'react'
 
-const Navbar = () => {
-  const [user, setUser] = useState(null);
-  const [role, setRole] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
-  const navigate = useNavigate();
-
-  // Handle authentication
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-        const docRef = doc(db, "users", currentUser.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setRole(docSnap.data().role);
-        }
-      } else {
-        setUser(null);
-        setRole(null);
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  // Handle scroll to toggle navbar background
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleLogout = async () => {
-    await signOut(auth);
-    navigate("/login");
-  };
-
+function Navbar() {
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center ">   
-        <Link to="/" className="text-3xl font-bold" style={{ color: "#FF7F50" }}>
-          Ray's Cosmeics
-        </Link>
-        <div className="space-x-4">
-          <Link to="/projects" className="text-red-500 hover:text-blue-600">
-            Projects
-          </Link>
+    <header className="w-full">
+      {/* Top Bar */}
+      <div className="flex items-center justify-between px-10 py-6 border-b border-gray-200">
+        {/* Logo */}
+        <div className="text-3xl font-light font-serif">
+          Joanna K
+        </div>
 
-          {role === "seller" && (
-            <Link to="/upload" className="text-gray-700 hover:text-blue-600">
-              Upload
-            </Link>
-          )}
-
-          {!user ? (
-            <>
-              <Link
-                to="/login"
-                className="text-red-600 hover:text-blue-600"
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="text-white px-3 py-1 rounded hover:opacity-90 transition-all"
-                style={{ backgroundColor: "#FF7F50" }}
-              >
-                Register
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link
-                to="/dashboard"
-                className="text-gray-700 hover:text-blue-600"
-              >
-                Dashboard
-              </Link>
-              <button
-                onClick={handleLogout}
-                className="text-red-600 font-semibold"
-              >
-                Logout
-              </button>
-            </>
-          )}
+        {/* Top Right Links */}
+        <div className="flex gap-6 text-xs tracking-widest">
+          <a href="#" className="hover:opacity-70">ACCOUNT</a>
+          <a href="#" className="hover:opacity-70">SEARCH</a>
+          <a href="#" className="hover:opacity-70">CART (0)</a>
         </div>
       </div>
 
-    </nav>
-  );
-};
+      {/* Bottom Menu */}
+      <nav className="bg-[#f3d8d1]">
+        <ul className="flex justify-center gap-10 py-4 text-sm tracking-widest font-medium">
+          <li><a href="#" className="hover:opacity-70">HOME</a></li>
+          <li><a href="#" className="hover:opacity-70">SHOP</a></li>
+          <li><a href="#" className="hover:opacity-70">BEST SELLERS</a></li>
+          <li><a href="#" className="hover:opacity-70">BUNDLES AND SETS</a></li>
+          <li><a href="#" className="hover:opacity-70">GIFT CARDS</a></li>
+          <li><a href="#" className="hover:opacity-70">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </header>
+  )
+}
 
-export default Navbar;
+export default Navbar
