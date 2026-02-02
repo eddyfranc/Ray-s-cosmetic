@@ -2,12 +2,12 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <header className="w-full">
+    <header className="w-full sticky top-0 z-50 bg-white">
       {/* Top Bar */}
       <div className="flex items-center justify-between px-10 py-6 border-b border-gray-200">
         {/* Logo */}
         <div className="text-3xl font-light font-serif">
-          Joanna K
+          Ray's Cosmetics
         </div>
 
         {/* Top Right Links */}
@@ -33,4 +33,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
