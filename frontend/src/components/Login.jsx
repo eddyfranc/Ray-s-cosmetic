@@ -45,7 +45,7 @@ function Login() {
       {/* Footer Text */}
       <p className="mt-12 text-sm text-gray-600">
         Don&apos;t have an account?{' '}
-        <a href="#" className="text-black underline">
+        <a href="/register" className="text-black underline">
           Create one
         </a>
       </p>

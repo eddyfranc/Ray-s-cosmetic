@@ -34,7 +34,7 @@ function Navbar() {
       <nav className="bg-[#f3d8d1]">
         <ul className="flex justify-center gap-10 py-4 text-sm tracking-widest font-medium">
           <li>
-            <Link to="/" className="hover:opacity-70">
+            <Link to="/home" className="hover:opacity-70">
               HOME
             </Link>
           </li>

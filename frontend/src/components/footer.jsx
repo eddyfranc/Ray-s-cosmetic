@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 text-black py-12 px-6">
+    <footer className="bg-black text-white py-12 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <Link to="/" className="text-xl mb-4 font-sans">
@@ -11,7 +11,7 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <Link
-                to="/lipsticks"
+                to="/"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 Lip sticks
