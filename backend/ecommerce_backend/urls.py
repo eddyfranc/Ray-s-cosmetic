@@ -18,6 +18,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.http import JsonResponse
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 def api_root(request):
     return JsonResponse({"message": "Welcome to Ray's Cosmetics API"})
@@ -25,5 +28,10 @@ def api_root(request):
 urlpatterns = [
     path('', api_root, name='api-root'),
     path('admin/', admin.site.urls),
+    path('api/', include('store.urls')),
     path('api/auth/', include('accounts.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
