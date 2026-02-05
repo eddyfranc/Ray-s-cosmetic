@@ -29,7 +29,9 @@ urlpatterns = [
     path('', api_root, name='api-root'),
     path('admin/', admin.site.urls),
     path('api/', include('store.urls')),
-    path('api/auth/', include('accounts.urls')),
+    # path('api/auth/', include('accounts.urls')),
+    path("api/accounts/", include("accounts.urls")),
+
 ]
 
 if settings.DEBUG:
