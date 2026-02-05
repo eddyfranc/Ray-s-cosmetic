@@ -29,20 +29,23 @@ User = get_user_model()
 
 
 class RegisterSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(
-        write_only=True,
-        required=True,
-        validators=[validate_password]
+    password = serializers.CharField( write_only=True, required=True, validators=[validate_password]
     )
 
     class Meta:
         model = User
-        fields = ('email', 'password')
+        fields = ('id','email', 'password')
 
     def create(self, validated_data):
         user = User.objects.create_user(
             email=validated_data['email'],
-            password=validated_data['password']
+            password=validated_data['password'],
+            is_customer=True,
+            is_active=True,
+
         )
         return user
+    
+   
+
 

@@ -21,8 +21,9 @@ from .views import (
 )
 
 urlpatterns = [
-    path("register/", RegisterView.as_view()),
-    path("me/", CustomerProfileView.as_view()),
-    path("staff/dashboard/", StaffDashboardView.as_view()),
-    path("admin/dashboard/", AdminDashboardView.as_view()),
+    path("register/", RegisterView.as_view(), name="register"),
+    path("me/", CustomerProfileView.as_view(), name="me"),
+    path("staff/dashboard/", StaffDashboardView.as_view(), name="staff-dashboard"),
+    path("admin/dashboard/", AdminDashboardView.as_view(), name="admin-dashboard"),
 ]
+
