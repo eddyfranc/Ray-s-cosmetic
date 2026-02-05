@@ -5,16 +5,18 @@ const Home = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold mb-6">
-            Welcome to Ray's Cosmetics
-          </h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Discover the best beauty products for your skin. Premium quality, affordable prices, and fast delivery.
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-            Shop Now
-          </button>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-bold mb-6">
+              Welcome to Ray's Cosmetics
+            </h1>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Discover the best beauty products for your skin. Premium quality, affordable prices, and fast delivery.
+            </p>
+            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              Shop Now
+            </button>
+          </div>
         </div>
       </section>
 

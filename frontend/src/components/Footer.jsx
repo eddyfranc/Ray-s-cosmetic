@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12 px-6">
+    <footer className="bg-[#f3d8d1] text-black py-12 px-6">
+      {/* bg-[#f3d8d1][#ffc0cbbb] */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <Link to="/" className="text-xl mb-4 font-sans">
@@ -82,6 +83,7 @@ const Footer = () => {
           </ul>
         </div>
 
+  
         <div>
           <h3 className="text-xl mb-4 font-sans">Email Newsletter</h3>
           <p className="text-gray-400 mb-4">
@@ -96,7 +98,6 @@ const Footer = () => {
 
             />
 
-
             <button
               type="submit"
               className="bg-[#f3d8d1] text-black px-6 py-2 rounded-md transition-all duration-200 hover:bg-white hover:text-[#FF7F50] hover:border hover:border-[#FF7F50]"
@@ -105,12 +106,20 @@ const Footer = () => {
             </button>
           </form>
         </div>
+                    {/* <div className="pt-0">
+<img src="images/img1.webp" alt="model" className="pt-0"/>
+</div> */}
+
       </div>
+
+
+
 
        <div className="mt-12 pt-8 border-t border-gray-700 text-center">
           <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Ray's Cosmetics. All rights reserved.</p>
          
         </div>
+
     </footer>
   );
 };

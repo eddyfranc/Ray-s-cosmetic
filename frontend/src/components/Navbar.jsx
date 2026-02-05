@@ -31,6 +31,7 @@ function Navbar() {
       </div>
 
       {/* Bottom Menu */}
+      
       <nav className="bg-[#f3d8d1]">
         <ul className="flex justify-center gap-10 py-4 text-sm tracking-widest font-medium">
           <li>
